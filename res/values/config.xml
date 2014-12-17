@@ -26,9 +26,9 @@
     <!-- Full path to the sysfs toggle -->
     <string name="flashDevice">/sys/class/leds/flashlight/brightness</string>
     <!-- Full path to the sysfs luminosity -->
-    <string name="flashDeviceLuminosity"></string>
+    <string name="flashDeviceLuminosity">/sys/class/camera/flash/rear_flash</string>
     <!-- Full path to the 2nd sysfs luminosity, leave empty if doesn't exist -->
-    <string name="flashDeviceLuminosity2"></string>
+    <string name="flashDeviceLuminosity2">/sys/class/camera/flash/burning_led</string>
 
     <!-- Off setting -->
     <integer name="valueOff">0</integer>
@@ -36,12 +36,12 @@
     <integer name="valueOn">1</integer>
 
     <!-- Low setting -->
-    <integer name="valueLow">50</integer>
+    <integer name="valueLow">1</integer>
     <!-- Middle setting -->
-    <integer name="valueHigh">128</integer>
+    <integer name="valueHigh">1</integer>
     <!-- Highest setting, leave -1 if it doesn't exist -->
-    <integer name="valueDeathRay">3</integer>
+    <integer name="valueDeathRay">-1</integer>
 
     <!-- If the device supports high brightness mode, enable this -->
-    <bool name="hasHighBrightness">false</bool>
+    <bool name="hasHighBrightness">true</bool>
 </resources>

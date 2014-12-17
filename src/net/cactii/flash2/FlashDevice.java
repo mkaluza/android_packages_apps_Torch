@@ -175,27 +175,18 @@ public class FlashDevice {
                         mFlashDeviceLuminosityWriter2 = new FileWriter(mFlashDeviceLuminosity2);
                     }
 
-                    mFlashDeviceWriter.write(String.valueOf(mValueOn));
-                    mFlashDeviceWriter.flush();
-
                     switch (mode) {
                         case ON:
                             mFlashDeviceLuminosityWriter.write(String.valueOf(mValueLow));
                             mFlashDeviceLuminosityWriter.flush();
-                            if (mFlashDeviceLuminosityWriter2 != null) {
-                                mFlashDeviceLuminosityWriter2.write(String.valueOf(mValueLow));
-                                mFlashDeviceLuminosityWriter2.flush();
-                            }
                             if (!mWakeLock.isHeld()) {
                                 mWakeLock.acquire();
                             }
                             break;
                         case OFF:
-                            mFlashDeviceLuminosityWriter.write(String.valueOf(mValueLow));
                             mFlashDeviceLuminosityWriter.close();
                             mFlashDeviceLuminosityWriter = null;
                             if (mFlashDeviceLuminosityWriter2 != null) {
-                                mFlashDeviceLuminosityWriter2.write(String.valueOf(mValueLow));
                                 mFlashDeviceLuminosityWriter2.close();
                                 mFlashDeviceLuminosityWriter2 = null;
                             }
@@ -218,8 +209,6 @@ public class FlashDevice {
                                     mWakeLock.acquire();
                                 }
                             } else if (mValueHigh >= 0) {
-                                mFlashDeviceLuminosityWriter.write(String.valueOf(mValueHigh));
-                                mFlashDeviceLuminosityWriter.flush();
                                 if (mFlashDeviceLuminosityWriter2 != null) {
                                     mFlashDeviceLuminosityWriter2.write(String.valueOf(mValueHigh));
                                     mFlashDeviceLuminosityWriter2.flush();
